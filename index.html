@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quizz</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <style>
+    .logo {
+      width: 90px;
+      border-radius: 50%;
+      z-index: 1000;
+    }
+    .drapeau {
+      border: 2px solid black;
+      border-radius: 6px;
+      box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0a086b 0%, #4b91a2 100%);
+    }
+    .acceuil h1 {
+      display: inline-block;
+      font-family: "Comic Sans MS", cursive, sans-serif;
+      text-align: center;
+      font-size: 2.9rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    .acceuil {
+      margin-top: -60px;
+      align-items: center;
+      padding: 0 20px;
+      overflow: hidden;
+      padding: 40px 30px;
+      text-align: center;
+      animation: fadeInUp 0.8s ease-out;
+    }
+  </style>
+  <body>
+    <div class="container">
+      <a href="https://www.facebook.com/profile.php?id=61576678558068" class="pp">
+        <img src="opendev.jpg" alt="Logo opendev" class="logo" />
+      </a>
+      <div class="acceuil">
+        <h1>
+          Connais-tu Madagascar
+          <img src="point-dinterrogation.png" style="width: 60px" />
+        </h1>
+        <svg width="90" height="60" viewBox="0 0 120 80" class="drapeau">
+          <rect x="0" y="0" width="50" height="80" fill="#FFFFFF" />
+          <rect x="40" y="0" width="100" height="40" fill="#FF0000" />
+          <rect x="40" y="40" width="100" height="40" fill="#00A651" />
+        </svg>
+      </div>
+      <div id="home-page" class="page active">
+        <div class="welcome-section">
+          <div class="hero-content">
+            <div class="hero-left">
+              <h2>Découvre Madagascar avec ces Quiz</h2>
+              <p>
+                Plonge dans l'univers fascinant de la Grande Île et teste tes
+                connaissances sur son histoire, sa géographie,sa culture
+                unique et ces personnalités connues.
+              </p>
+            </div>
+            <div class="hero-right">
+              <div class="madagascar-visual">
+                <img
+                  src="MADAGASCAR-2020.jpg"
+                  alt="Carte de Madagascar"
+                  class="madagascar-image"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="active" id="off">
+        <div class="quiz-options">
+          <button
+            class="quiz-btn history-btn"
+            onclick="startQuiz('personnalites')"
+          >
+            <img src="celebre.png" alt="" class="icon" />
+            <span class="title">Célébrités</span>
+          </button>
+          <button class="quiz-btn history-btn" onclick="startQuiz('histoire')">
+            <img src="histoire(1).png" alt="" class="icon" />
+            <span class="title">Histoire</span>
+          </button>
+          <button
+            class="quiz-btn geography-btn"
+            onclick="startQuiz('geographie')"
+          >
+            <img src="carte-2.png" alt="" class="icon" />
+            <span class="title">Géographie</span>
+          </button>
+          <button class="quiz-btn culture-btn" onclick="startQuiz('culture')">
+            <img src="homme.png" alt="" class="icon" />
+            <span class="title">Culture</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div id="quiz-page" class="page active">
+      <div class="quiz-header">
+        <button class="back-btn" onclick="goHome()">← Retour</button>
+        <div class="progress-bar">
+          <div class="progress" id="progress" style="width: 0%"></div>
+        </div>
+        <div class="score">Score: <span id="score">0</span>/10</div>
+      </div>
+
+      <div class="quiz-content">
+        <h2 id="quiz-title">
+          Histoire de Madagascar
+        </h2>
+        <div class="question-counter">
+          Question <span id="current-question">1</span> sur
+          <span id="total-questions">10</span>
+        </div>
+        <div class="question-card">
+          <h3 id="question-text">Quel pays a colonisé Madagascar ?</h3>
+          <div class="answers" id="answers">
+            <button class="answer-btn">Les Anglais</button
+            ><button class="answer-btn">Les Portugais</button
+            ><button class="answer-btn">Les Français</button
+            ><button class="answer-btn">Les Espagnols</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="quiz-page" class="page active">
+        <div class="quiz-header">
+          <button class="back-btn" onclick="goHome()">← Retour</button>
+          <div class="progress-bar">
+            <div class="progress" id="progress" style="width: 0%"></div>
+          </div>
+          <div class="score">Score: <span id="score">0</span>/10</div>
+        </div>
+
+        <div class="quiz-content">
+          <h2 id="quiz-title">Géographie de Madagascar</h2>
+          <div class="question-counter">
+            Question <span id="current-question">1</span> sur
+            <span id="total-questions">10</span>
+          </div>
+          <div class="question-card">
+            <h3 id="question-text">
+              Madagascar est la ... plus grande île du monde ?
+            </h3>
+            <div class="answers" id="answers">
+              <button class="answer-btn">2ème</button
+              ><button class="answer-btn">3ème</button
+              ><button class="answer-btn">4ème</button
+              ><button class="answer-btn">5ème</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div id="results-page" class="page">
+      <div class="results-content">
+        <h2>
+          <img src="trophee.png" alt="trophée" style="width: 40px" /> Félicitations !
+        </h2>
+        <div class="final-score">
+          <div class="score-circle"><span id="final-score">0</span>/10</div>
+          <p id="score-message"></p>
+        </div>
+        <div class="results-actions">
+          <button class="btn primary" onclick="goHome()">Nouveau Quiz</button>
+          <button class="btn secondary" onclick="restartQuiz()">
+            Recommencer
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
